@@ -1,36 +1,42 @@
- var x
- var y
- 
- function setup(){
-     createCanvas(1000,1000)
-     x= 250
-     y=250  
-     background(51)
+var x
+var y
 
- }
- function draw(){
-     point(x,y)
-     stroke(255)
-     strokeWeight(5)
-     var r = floor(random(4))
+function setup() {
+    createCanvas(500, 500)
+    x = 250
+    y = 250
+    background(200)
 
-     
-        stroke(floor(random(255)),floor(random(255)),floor(random(255)))
-        switch (r) {
-            case 0:
-                if(x<width && x>0 && y<height && y>0) x += 5
-                break;
-           case 1:
-            if(x<width && x>0 && y<height && y>0) x -= 5
-               break;
-           case 2:
-            if(x<width && x>0 && y<height && y>0) y += 5
-               break;
-           case 3:
-            if(x<width && x>0 && y<height && y>0) y -= 5
-               break;
-            default:
-                break;
-        
-     }
- }
+}
+function draw() {
+    point(x, y)
+    stroke(255)
+    strokeWeight(10)
+    var r = floor(random(4))
+
+
+    stroke(floor(random(255)), floor(random(255)), floor(random(255)))
+    switch (r) {
+        case 0:
+            x += 10
+            break;
+        case 1:
+            x -= 10
+            break;
+        case 2:
+            y += 10
+            break;
+        case 3:
+            y -= 10
+            break;
+        default:
+            break;
+
+    }
+    if (x + 10 > width || x + 10 < 0 || y + 10 > height || y + 10 < 0) {
+        // x=floor(random(width))
+        // y=floor(random(height))
+        x = 250
+        y = 250
+    }
+}
